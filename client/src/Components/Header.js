@@ -1,14 +1,18 @@
-import React, {Component} from 'react';
+import React, {Component, useContext} from 'react';
 import {Button, Container, FormControl, Navbar, Nav, Form} from "react-bootstrap";
 import logo from './logobook.png';
 
 import Basket from "../Pages/Basket";
 import Book from "../Pages/Book";
 import Contacts from "../Pages/Contacts";
+import Auth from "../Pages/Auth";
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
+import {Context} from "../index";
+import {observer} from "mobx-react-lite";
+import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 
-class Header extends Component {
-    render() {
+const Header = observer(() => {
+    const {user} = useContext(Context)
         return (
             <>
                 <Router>
@@ -39,19 +43,32 @@ class Header extends Component {
                                     />
                                     <Button variant="light">Поиск</Button>
                                 </Form>
+                                {user.isAuth ?
+                                    <Nav className="ms-2 my-2">
+                                        <Button variant="light" href="/auth">Войти</Button>
+                                    </Nav>
+                                    :
+                                    <Nav className="ms-2 my-2 ">
+                                        <Button variant="light" onClick={() => user.setIsAuth(true)}>Авторизация</Button>
+                                    </Nav>
+                                }
 
                             </Navbar.Collapse>
+
                         </Container>
                     </Navbar>
                     <Routes>
                         <Route path="/book" element ={<Book/>} />
                         <Route path="/basket" element ={<Basket/>} />
                         <Route path="/contacts" element ={<Contacts/>} />
+                        <Route path="/auth" element ={<Auth/>} />
+                        <Route path="/login" element ={REGISTRATION_ROUTE} />
+                        <Route path="/registration" element ={LOGIN_ROUTE} />
                     </Routes>
                 </Router>
             </>
         );
-    }
-}
+    });
+
 
 export default Header;
