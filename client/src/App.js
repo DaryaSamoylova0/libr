@@ -11,10 +11,9 @@ import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "./utils/consts";
 function App() {
     return (
         <>
-            <Header />
-            <Footer />
-        </>
-
+        <Header />
+        <Footer />
+        </>    
     );
 }
 

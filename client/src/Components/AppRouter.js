@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {Routes, Route, Navigate} from 'react-router-dom';
 import {authRoutes, publicRoutes} from '../routes';
-import {LIBRARY_ROUTE} from '../utils/consts';
+import {BOOK_ROUTE} from '../utils/consts';
 import {Context} from "../index";
 import {Link} from 'react-router-dom';
 
@@ -18,7 +18,7 @@ const AppRouter = () => {
             {publicRoutes.map(({path, Component}) =>
                 <Route key={path} path={path} element={<Component/>} exact/>
             )}
-            <Route path='*' element={<Navigate to={LIBRARY_ROUTE}/>} />
+            <Route path='*' element={<Navigate to={BOOK_ROUTE}/>} />
         </Routes>
     );
 };

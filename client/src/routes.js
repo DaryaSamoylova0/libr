@@ -5,6 +5,7 @@ import Auth from "./Pages/Auth";
 import Contacts from "./Pages/Contacts";
 import BookOne from "./Pages/BookOne";
 import Library from "./Pages/Library";
+import Book from "./Pages/Book";
 
 export const authRoutes = [
     {
@@ -32,7 +33,7 @@ export const publicRoutes = [
     },
     {
         path: BOOK_ROUTE,
-        Comment: BookOne
+        Comment: Book
     }
 
 ]
