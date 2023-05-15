@@ -5,11 +5,13 @@ import logo from './logobook.png';
 import Basket from "../Pages/Basket";
 import Book from "../Pages/Book";
 import Contacts from "../Pages/Contacts";
+import BookOne from "../Pages/BookOne";
 import Auth from "../Pages/Auth";
 import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
+import Admin from '../Pages/Admin';
 
 const Header = observer(() => {
     const {user} = useContext(Context)
@@ -52,6 +54,9 @@ const Header = observer(() => {
                                         <Button variant="light" onClick={() => user.setIsAuth(true)}>Авторизация</Button>
                                     </Nav>
                                 }
+                                <Nav className="ms-2 my-2">
+                                    <Nav.Link href="/admin"><Button variant="light">Админ панель</Button></Nav.Link>   
+                                </Nav>
 
                             </Navbar.Collapse>
 
@@ -64,6 +69,8 @@ const Header = observer(() => {
                         <Route path="/auth" element ={<Auth/>} />
                         <Route path="/login" element ={REGISTRATION_ROUTE} />
                         <Route path="/registration" element ={LOGIN_ROUTE} />
+                        <Route path="/bookone" element ={<BookOne/>} />
+                        <Route path="/admin" element ={<Admin/>} />
                     </Routes>
                 </Router>
             </>

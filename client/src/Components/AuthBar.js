@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext } from "react";
 import { Context } from "../index";
-import { Row, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 const AuthBar = observer(() => {
     const {book} = useContext(Context)
@@ -14,7 +14,7 @@ const AuthBar = observer(() => {
                 key={author.id}
                 className="p-3"
                 onClick={() => book.setSelectedAuthor(author)}
-                border={author.id === book.selectedAuthor.id ? 'danger' : 'light'}
+                border={author.id === book.selectedAuthor.id ? 'primary' : 'light'}
                 >
                     {author.name}
 
