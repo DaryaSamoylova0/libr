@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Image, Row, Button } from 'react-bootstrap';
+import {useParams, uswParams} from 'react-router-dom'
+import { fetchOneBook } from '../http/bookAPI';
 
 const BookOne = () => {
-    const book = {id: 1, name:'"10 негритят"', depiction: 'Детективный роман, написанный в 1939 году', img: `66599932-c4d7-4883-99f1-53b462899464.jpg`};
+    const [book, setBook] = useState({depiction: []})
+    const {id} = useParams()
+    useEffect(() => {
+        fetchOneBook(id).then(data => setBook(data))
+    },[])
 
     return (
         <Container>
             <Row>
                <Col md={4}>
-                <Image widht={300} height={300} src = {book.img}/>
+                <Image widht={300} height={300} src = {process.env.REACT_APP_API_URL + book.img}/>
             </Col>
             <Col md={4}>
                 <Row>

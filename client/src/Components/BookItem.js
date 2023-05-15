@@ -15,10 +15,10 @@ const BookItem = ({book}) => {
         <>
         
             <Col md={3} /*onClick={() => history.navigate(BOOK_ROUTE + '/' + book.id)}*/ >
-                <Card style={{width: 150, cursor: 'pointer', marginTop: 15}} border={"light"}>
-                    <Image width={150} height={150} src={book.img}/>
+                <Card style={{width: 150, cursor: 'pointer', marginTop: 40, marginBottom:70}} border={"light"}>
+                    <Image width={150} height={190} src={process.env.REACT_APP_API_URL + book.img}/>
                     <div className="text-black-50 mt-1 d-flex justify-content-between aligh-items-center">
-                        <div>kghj</div>
+                        <div>Название:</div>
                         <div></div>
                     </div>
                     <div>
