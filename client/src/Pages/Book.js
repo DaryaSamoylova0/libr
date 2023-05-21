@@ -3,10 +3,12 @@ import {Col, Container, Row} from "react-bootstrap";
 import GenreBar from '../Components/GenreBar';
 import AuthBar from '../Components/AuthBar';
 import BookList from '../Components/BookList';
+import Footer from "../Components/Footer";
 import { observer } from 'mobx-react-lite';
 import { Context } from '../index';
 import { fetchAuthors, fetchGenres, fetchBooks } from '../http/bookAPI';
 import Pages from '../Components/Pages';
+import background from '../assets/bg.jpg';
 
 const Book = observer(() => {
     const {book} = useContext(Context)
@@ -28,6 +30,7 @@ const Book = observer(() => {
     }, [book.page, book.selectedGenre, book.selectedAuthor])
 
     return (
+        <div /*style={{ backgroundImage: `url(${background})`, backgroundRepeat: 'no-repeat', backgroundSize: "cover" }}*/>
         <Container>
             <Row className="mt-5">
                 <Col md={3}>
@@ -40,6 +43,7 @@ const Book = observer(() => {
                 </Col>
             </Row>
         </Container>
+        </div>
 
     );
 });

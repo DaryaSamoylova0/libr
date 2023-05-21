@@ -1,4 +1,4 @@
-import React, {Component, useContext} from 'react';
+import React, { useState,Component, useContext} from 'react';
 import {Button, Container, FormControl, Navbar, Nav, Form} from "react-bootstrap";
 import logo from './logobook.png';
 
@@ -12,15 +12,20 @@ import {Context} from "../index";
 import {observer} from "mobx-react-lite";
 import {LOGIN_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import Admin from '../Pages/Admin';
+import Library from '../Pages/Library';
+import Regist from '../Pages/Regist';
+import Entry from '../Pages/Entry';
 
 const Header = observer(() => {
     const {user} = useContext(Context)
+    
+
         return (
             <>
                 <Router>
-                    <Navbar collapseOnSelect expand="md" bg="primary" variant="dark">
+                    <Navbar collapseOnSelect expand="md" variant="lg"  /*fixed='top' variant="lg"-белые буквы */>
                         <Container>
-                            <Navbar.Brand href="/">
+                            <Navbar.Brand href="/library">
                                 <img
                                     src={logo}
                                     height="50"
@@ -33,17 +38,18 @@ const Header = observer(() => {
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav className="me-auto my-2 my-lg-0">
-                                    <Nav.Link href="/book">Книги</Nav.Link>
+                                    <Nav.Link className="active" href="/book">Книги</Nav.Link>
                                     <Nav.Link href="/basket">Корзина</Nav.Link>
                                     <Nav.Link href="/contacts">Контакты</Nav.Link>
                                 </Nav>
-                                <Form className="d-flex">
+                                <Form /*className="d-flex">
                                     <FormControl
                                         type="text"
                                         placeholder="Поиск"
                                         className="me-sm-2"
+                                        
                                     />
-                                    <Button variant="light">Поиск</Button>
+                                    <Button variant="light">Поиск</Button>*/>
                                 </Form>
                                 {user.isAuth ?
                                     <Nav className="ms-2 my-2">
@@ -71,6 +77,9 @@ const Header = observer(() => {
                         <Route path="/registration" element ={LOGIN_ROUTE} />
                         <Route path="/admin" element ={<Admin/>} />
                         <Route path="/book/:id" element={<BookOne />} />
+                        <Route path="/library" element={<Library />} />
+                        <Route path="/login" element={<Entry />} />
+                        <Route path="/registration" element={<Regist />} />
                     </Routes>
                 </Router>
             </>
