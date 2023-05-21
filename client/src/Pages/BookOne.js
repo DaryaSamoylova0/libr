@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Container, Image, Row, Button } from 'react-bootstrap';
-import {useParams, uswParams} from 'react-router-dom'
+import { useParams} from 'react-router-dom'
 import { fetchOneBook } from '../http/bookAPI';
+import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 
 const BookOne = () => {
-    const [book, setBook] = useState({depiction: []})
+    const [book, setBook] = useState({info: []})
     const {id} = useParams()
+    
     useEffect(() => {
         fetchOneBook(id).then(data => setBook(data))
     },[])
@@ -14,7 +16,7 @@ const BookOne = () => {
         <Container>
             <Row>
                <Col md={4}>
-                <Image widht={300} height={300} src = {process.env.REACT_APP_API_URL + book.img}/>
+                
             </Col>
             <Col md={4}>
                 <Row>
@@ -37,6 +39,7 @@ const BookOne = () => {
             
         </Container>
     );
+
 };
 
 export default BookOne;

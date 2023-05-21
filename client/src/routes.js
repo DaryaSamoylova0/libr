@@ -32,8 +32,8 @@ export const publicRoutes = [
         Comment: Auth
     },
     {
-        path: BOOK_ROUTE,
-        Comment: Book
+        path: BOOK_ROUTE + '/:id',
+        Comment: BookOne
     }
 
 ]

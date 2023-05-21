@@ -69,8 +69,8 @@ const Header = observer(() => {
                         <Route path="/auth" element ={<Auth/>} />
                         <Route path="/login" element ={REGISTRATION_ROUTE} />
                         <Route path="/registration" element ={LOGIN_ROUTE} />
-                        <Route path="/bookone" element ={<BookOne/>} />
                         <Route path="/admin" element ={<Admin/>} />
+                        <Route path="/book/:id" element={<BookOne />} />
                     </Routes>
                 </Router>
             </>

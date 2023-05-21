@@ -14,11 +14,18 @@ const Book = observer(() => {
     useEffect(() => {
         fetchGenres().then(data => book.setGenres(data))
         fetchAuthors().then(data => book.setAuthors(data))
-        fetchBooks().then(data => {
+        fetchBooks(null, null, 1, 8).then(data => {
             book.setBooks(data.rows)
             book.setTotalCount(data.count)
         })
     }, [])
+
+    useEffect(() => {
+        fetchBooks(book.selectedGenre.id, book.selectedAuthor.id, book.page, 8).then(data => {
+            book.setBooks(data.rows)
+            book.setTotalCount(data.count)
+        })
+    }, [book.page, book.selectedGenre, book.selectedAuthor])
 
     return (
         <Container>

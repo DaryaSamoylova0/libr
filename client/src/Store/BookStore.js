@@ -26,11 +26,13 @@ export default class BookStore {
     }
 
     setSelectedGenre(genre){
+        this.setPage(1)
         this._selectedGenre = genre
 
     }
 
     setSelectedAuthor(author){
+        this.setPage(1)
         this._selectedAuthor = author
 
     }
@@ -40,8 +42,8 @@ export default class BookStore {
 
     }
 
-    setTotalCount(totalCount){
-        this._totalCount = totalCount
+    setTotalCount(count){
+        this._totalCount = count
 
     }
 
@@ -74,6 +76,6 @@ export default class BookStore {
     }
 
     get limit(){
-        return this.limit
+        return this._limit
     }
 }
