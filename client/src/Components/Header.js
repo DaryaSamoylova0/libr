@@ -15,6 +15,7 @@ import Admin from '../Pages/Admin';
 import Library from '../Pages/Library';
 import Regist from '../Pages/Regist';
 import Entry from '../Pages/Entry';
+import LongPulling from '../Pages/LongPulling'
 
 const Header = observer(() => {
     const {user} = useContext(Context)
@@ -39,7 +40,7 @@ const Header = observer(() => {
                             <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav className="me-auto my-2 my-lg-0">
                                     <Nav.Link className="active"  href="/book">Книги</Nav.Link>
-                                    <Nav.Link href="/basket">Корзина</Nav.Link>
+                                    </*Nav.Link href="/basket">Корзина</Nav.Link*/></>
                                     <Nav.Link href="/contacts">Контакты</Nav.Link>
                                 </Nav>
                                 <Form /*className="d-flex">
@@ -64,6 +65,10 @@ const Header = observer(() => {
                                     <Nav.Link href="/admin"><Button variant="dark" style={{backgroundColor: '#643c34'}}>Админ панель</Button></Nav.Link>   
                                 </Nav>
 
+                                <Nav className="ms-2 my-2" >
+                                    <Nav.Link href="/chat"><Button variant="dark" style={{backgroundColor: '#643c34'}}>Чат</Button></Nav.Link>
+                                </Nav>
+
                             </Navbar.Collapse>
 
                         </Container>
@@ -80,6 +85,8 @@ const Header = observer(() => {
                         <Route path="/library" element={<Library />} />
                         <Route path="/login" element={<Entry />} />
                         <Route path="/registration" element={<Regist />} />
+                        <Route path="/chat" element ={<LongPulling/>} />
+
                     </Routes>
                 </Router>
             </>

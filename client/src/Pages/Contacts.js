@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Card, Container, CardGroup, Button, Form} from "react-bootstrap";
+import {Card, Container, CardGroup, Button, Form, Nav} from "react-bootstrap";
 import Img14 from "../assets/cont.jpg"
 import { useState } from 'react';
 
@@ -90,6 +90,7 @@ function Contacts() {
                                 </Form.Group>
                                 <p></p>
                                 <Button variant="dark" style={{backgroundColor: '#643c34'}} type="submit" onClick={handleSubmit}>Отправить</Button>
+                                <Nav.Link style={{ marginTop: '20px' }} href="/chat"><Button variant="dark" style={{backgroundColor: '#643c34'}}>Чат</Button></Nav.Link>
                             </Form>
                             </Card.Body>
                         </Card>
