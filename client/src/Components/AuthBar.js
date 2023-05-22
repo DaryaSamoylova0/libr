@@ -2,6 +2,8 @@ import { observer } from "mobx-react-lite";
 import React, { useContext } from "react";
 import { Context } from "../index";
 import { Card } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './pagination.css';
 
 const AuthBar = observer(() => {
     const {book} = useContext(Context)
@@ -9,12 +11,14 @@ const AuthBar = observer(() => {
     return(
         <div className="d-flex flex-wrap"> 
             {book.authors.map(author => 
-                <Card
+                <Card 
+                className="authcard p-3"
                 style={{cursor: 'pointer'}}
                 key={author.id}
-                className="p-3"
                 onClick={() => book.setSelectedAuthor(author)}
-                border={author.id === book.selectedAuthor.id ? 'primary' : 'light'}
+                border={author.id === book.selectedAuthor.id ? '#643c34' : 'light'
+
+                }
                 >
                     {author.name}
 

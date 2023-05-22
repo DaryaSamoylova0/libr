@@ -6,6 +6,9 @@ import CreateGenre from '../Components/modals/CreateGenre';
 import CreateBook from '../Components/modals/CreateBook';
 import CreateAuthor from '../Components/modals/CreateAuthor';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Components/pagination.css';
+
 const Admin = () => {
     const [genreVisible, setGenreVisible] = useState(false);
     const [authorVisible, setAuthorVisible] = useState(false);
@@ -13,16 +16,16 @@ const Admin = () => {
 
     return (
         <Container className="d-flex flex-column">
-            <Button variant={"outline-primary"} className="m-4" onClick={() => setGenreVisible(true)}>
+            <Button variant="dark" className=" m-4 authcard" onClick={() => setGenreVisible(true)}>
                 Добавить жанр
             </Button>
-            <Button variant={"outline-primary"} className="m-4" onClick={() => setAuthorVisible(true)}>
+            <Button variant="dark" className="m-4 authcard" onClick={() => setAuthorVisible(true)}>
                 Добавить автора
             </Button>
-            <Button variant={"outline-primary"} className="m-4" onClick={() => setBookVisible(true)}>
+            <Button /*variant={"outline-primary"}*/ variant="dark" className="m-4 authcard" onClick={() => setBookVisible(true)}>
                 Добавить книгу
             </Button>
-            <Button href="/book" className="m-5" variant="outline-primary">
+            <Button href="/book" variant="dark" className="m-5 authcard">
                 Выйти из админ панели
             </Button>
 

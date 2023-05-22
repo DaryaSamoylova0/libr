@@ -3,6 +3,8 @@ import {observer} from "mobx-react-lite";
 
 import {Context} from "../index";
 import { ListGroup } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './pagination.css';
 
 const GenreBar = observer(() => {
     const {book} = useContext(Context)
@@ -10,7 +12,7 @@ const GenreBar = observer(() => {
     return(
         <ListGroup>
             {book.genres.map(genre =>
-                <ListGroup.Item 
+                <ListGroup.Item className="list"
                 style={{cursor: 'pointer'}}
                 active={genre.id === book.selectedGenre.id}
                 onClick={() => book.setSelectedGenre(genre)}

@@ -23,7 +23,7 @@ const Header = observer(() => {
         return (
             <>
                 <Router>
-                    <Navbar collapseOnSelect expand="md" variant="lg"  /*fixed='top' variant="lg"-белые буквы */>
+                    <Navbar collapseOnSelect expand="md" variant="lg"  /*fixed='top' variant="dark"-белые буквы  style={{backgroundColor: '#214180152'}} */>
                         <Container>
                             <Navbar.Brand href="/library">
                                 <img
@@ -38,7 +38,7 @@ const Header = observer(() => {
                             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                             <Navbar.Collapse id="responsive-navbar-nav">
                                 <Nav className="me-auto my-2 my-lg-0">
-                                    <Nav.Link className="active" href="/book">Книги</Nav.Link>
+                                    <Nav.Link className="active"  href="/book">Книги</Nav.Link>
                                     <Nav.Link href="/basket">Корзина</Nav.Link>
                                     <Nav.Link href="/contacts">Контакты</Nav.Link>
                                 </Nav>
@@ -53,15 +53,15 @@ const Header = observer(() => {
                                 </Form>
                                 {user.isAuth ?
                                     <Nav className="ms-2 my-2">
-                                        <Button variant="light" href="/auth">Войти</Button>
+                                        <Button variant="dark" style={{backgroundColor: '#643c34'}} href="/auth">Войти</Button>
                                     </Nav>
                                     :
                                     <Nav className="ms-2 my-2 ">
-                                        <Button variant="light" onClick={() => user.setIsAuth(true)}>Авторизация</Button>
+                                        <Button variant="dark" style={{backgroundColor: '#643c34'}} onClick={() => user.setIsAuth(true)}>Авторизация</Button>
                                     </Nav>
                                 }
-                                <Nav className="ms-2 my-2">
-                                    <Nav.Link href="/admin"><Button variant="light">Админ панель</Button></Nav.Link>   
+                                <Nav className="ms-2 my-2" >
+                                    <Nav.Link href="/admin"><Button variant="dark" style={{backgroundColor: '#643c34'}}>Админ панель</Button></Nav.Link>   
                                 </Nav>
 
                             </Navbar.Collapse>

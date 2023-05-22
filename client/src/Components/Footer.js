@@ -6,10 +6,13 @@ import {
     MDBRow
 } from 'mdb-react-ui-kit';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './pagination.css';
+
 class Footer extends Component {
     render() {
         return (
-            <MDBFooter  className='text-center text-lg-start text-muted'>
+            <MDBFooter  className="text-center text-lg-start text-muted sticky bottom-0">
                 <MDBContainer className='p-4' >
                     <MDBRow >
                         <MDBCol lg='6' md='12' className='mb-4 mb-md-0'>
